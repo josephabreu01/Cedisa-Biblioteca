@@ -5,6 +5,8 @@ const algoliasearch = require('algoliasearch');
 const client = algoliasearch('PIQ9925HKD', '689de093f04dc66fe2b6b0a70ac151d1');
 const index = client.initIndex('biblioteca');
 const checkJWT = require('../middlewares/ckeck-jwt');
+const mysql = require('../mysqlCredencial');
+
 
 
 router.route('/estudios')
@@ -23,6 +25,8 @@ router.route('/estudios')
                     
                 }
             });
+
+        
     })
     .post(checkJWT, (req, res, next) => {
         let estudio = new Estudio();
